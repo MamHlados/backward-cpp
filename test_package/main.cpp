@@ -15,7 +15,7 @@ private:
 
     StackTrace stackTrace;
     TraceResolver resolver;
-    stackTrace.load_here();
+    stackTrace.load_here(32);
     resolver.load_stacktrace(stackTrace);
 
     for (std::size_t i = 0; i < stackTrace.size(); ++i) {
@@ -41,6 +41,6 @@ int main() {
   try {
     f(0);
   } catch (const TracedException &ex) {
-    std::cout << ex.what();
+    std::cout << ex.what() << std::endl;
   }
 }
